@@ -163,7 +163,7 @@ class Net():
         self.params['b3'] = self.params['b3'] - self.learning_rate * dl_wrt_b3
         self.params['b4'] = self.params['b4'] - self.learning_rate * dl_wrt_b4
 
-    def fit(self, X, y,X_test,y_test,optimizer="Batch",batch_size=32,dimisnishing: bool = True):
+    def fit(self, X, y,X_test,y_test,optimizer="Batch",batch_size=32,diminishing: bool = True):
         '''
         Trains the neural network using the specified data and labels
         '''
