@@ -247,22 +247,22 @@ class Net():
         '''
         Plots the loss curve
         '''
-        plt.subplots(3,1)
-        plt.subplot(3,1,1)
         plt.plot(self.loss,label='Training Loss')
         plt.plot(self.loss_test,label='Testing Loss')
         plt.legend(loc='best')
         plt.xlabel("Epoch")
         plt.ylabel("MSE Loss")
         plt.title("Training and Testing MSE Loss")
-        plt.subplot(3,1,2)
+        plt.show()
+            
         plt.plot(self.loss_train_mae,label='Training Loss')
         plt.plot(self.loss_test_mae,label='Testing Loss')
         plt.legend(loc='best')
         plt.xlabel("Epoch")
         plt.ylabel("MAE Loss")
         plt.title("Training and Testing MAE Loss")
-        plt.subplot(3,1,3)
+        plt.show()
+            
         plt.plot(self.loss_train_rmse,label='Training Loss')
         plt.plot(self.loss_test_rmse,label='Testing Loss')
         plt.legend(loc='best')
