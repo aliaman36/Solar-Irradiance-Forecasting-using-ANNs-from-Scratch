@@ -255,7 +255,7 @@ class Net():
         plt.xlabel("Epoch")
         plt.ylabel("MSE Loss")
         plt.title("Training and Testing MSE Loss")
-        plt.subplot(3,,,2)
+        plt.subplot(3,1,2)
         plt.plot(self.loss_train_mae,label='Training Loss')
         plt.plot(self.loss_test_mae,label='Testing Loss')
         plt.legend(loc='best')
