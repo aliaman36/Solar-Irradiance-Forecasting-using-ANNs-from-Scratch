@@ -163,7 +163,7 @@ class Net():
         self.params['b3'] = self.params['b3'] - self.learning_rate * dl_wrt_b3
         self.params['b4'] = self.params['b4'] - self.learning_rate * dl_wrt_b4
 
-    def fit(self, X, y,X_test,y_test,optimizer="Batch",batch_size=32):
+    def fit(self, X, y,X_test,y_test,optimizer="Batch",batch_size=32,dimisnishing=true):
         '''
         Trains the neural network using the specified data and labels
         '''
@@ -173,8 +173,9 @@ class Net():
         
         if(optimizer == "SGD"):
             for i in range(self.iterations):
-                if((i+1)%50 == 0):
-                    self.learning_rate/=2
+                if (diminishing == true):
+                        if((i+1)%50 == 0):
+                            self.learning_rate/=2
                 for _ in range(self.X.shape[0]//batch_size):
                     randomKey = np.random.randint(0,self.X.shape[0],size=batch_size)
                     yhat, loss = self.forward_propagation("SGD",randomKey)
@@ -199,9 +200,10 @@ class Net():
                 print("Epoch {}: MSE Training Loss {} - MSE Testing Loss {} - MAE Testing Loss {} - RMSE Testing Loss {}".format(i+1, loss,loss_test,loss_test_mae,loss_test_rmse))
         else:
             for i in range(self.iterations):
-                if((i+1)%100==0):
-                    if((i+1) <= 400):
-                        self.learning_rate /=2
+                if (diminishing == true):    
+                        if((i+1)%100==0):
+                            if((i+1) <= 400):
+                                self.learning_rate /=2
                 yhat, loss = self.forward_propagation()
                 self.back_propagation(yhat)
                 self.loss.append(loss)
