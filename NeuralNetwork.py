@@ -232,6 +232,9 @@ class Net():
                 self.loss_test_mae.append(loss_test_mae)
                 self.loss_test_rmse.append(loss_test_rmse)
                 self.loss_test.append(loss_test)
+                predi=self.predict(X_test)
+                accuracy_model = r2_score(y_test, predi)
+                self.acc_model.append(accuracy_model)
                 print("Epoch {}: MSE Training Loss {} - MSE Testing Loss {} - MAE Testing Loss {} - RMSE Testing Loss {}".format(i+1, loss,loss_test,loss_test_mae,loss_test_rmse))
 
     def predict(self, X):
